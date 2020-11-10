@@ -8,4 +8,10 @@ const schema = buildSchema(`
     }
 `)
 
-graphql(schema, '{ hello }').then(result => console.log(result))
+const resolvers = {
+    hello: () => {
+        return "Hola mundo!"
+    }
+}
+ 
+graphql(schema, '{ hello }', resolvers).then(result => console.log(result))
